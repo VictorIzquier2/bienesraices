@@ -27,7 +27,7 @@
     background-color: $bgColor;
     color: $blanco;
     padding: 1rem 3rem;
-    margin-top: calc($separacion / 2);
+    margin: calc($separacion / 2) auto;
     border: none;
     font-weight: $bold;
     text-align: center;
