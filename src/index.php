@@ -1,5 +1,5 @@
 <?php
-  require '../includes/funciones.php';
+  require '../includes/app.php';
   incluirTemplate('header', true);
 ?>
 
@@ -96,5 +96,5 @@
   </div>
 
   <?php
-    include '../includes/templates/footer.php';
+    incluirTemplate('footer');
   ?>

@@ -1,19 +1,28 @@
 <?php
 
+  require '../includes/app.php';
+  
   $id = $_GET['id'];
   $id = filter_var($id, FILTER_VALIDATE_INT);
 
   if(!$id){ header('Location: /'); }
 
-  require '../includes/config/database.php';
+  // Conectar
   $db = conectarDB();
 
+  // Consultar
   $query = "SELECT * FROM propiedades WHERE id = $id;";
 
+  // Obtener resultado
   $resultado = mysqli_query($db, $query);
+
+  if(!$resultado->num_rows){
+    header('Location: /src/index.php');
+  }
+
+  // Obtener propiedad
   $propiedad = mysqli_fetch_assoc($resultado);
 
-  require '../includes/funciones.php';
   incluirTemplate('header');
 ?>
 
@@ -41,5 +50,5 @@
   </main>
   <?php
   mysqli_close($db);
-include '../includes/templates/footer.php';
+  incluirTemplate('footer');
 ?>

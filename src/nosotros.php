@@ -1,5 +1,5 @@
 <?php
-  require '../includes/funciones.php';
+  require '../includes/app.php';
   incluirTemplate('header');
 ?>
   <main class="contenedor seccion">
@@ -45,5 +45,5 @@
   </section>
 
 <?php
-  include '../includes/templates/footer.php';
+  incluirTemplate('footer');
 ?>

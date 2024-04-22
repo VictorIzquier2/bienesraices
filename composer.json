@@ -1,0 +1,19 @@
+{
+    "name": "victor/bienesraices",
+    "description": "Creando un proyecto con POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "./clases"
+        }
+    },
+    "authors": [
+        {
+            "name": "VictorIzquier2",
+            "email": "victor.izquierdo1985@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^3.5"
+    }
+}

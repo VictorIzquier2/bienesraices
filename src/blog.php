@@ -1,5 +1,5 @@
 <?php
-  require '../includes/funciones.php';
+  require '../includes/app.php';
   incluirTemplate('header');
 ?>
   <main class="contenedor seccion contenido-centrado">
@@ -78,5 +78,5 @@
     </article>
   </main>
 <?php
-  include '../includes/templates/footer.php';
+  incluirTemplate('footer');
 ?>

@@ -1,11 +1,11 @@
 <?php
-  require '../includes/config/database.php';
+  require '../includes/app.php';
   $db = conectarDB();
   $errores = [];
-
+  
   /* AUTENTIFICAR EL USUARIO */
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
+    
     
     $email = mysqli_real_escape_string($db, filter_var($_POST['email'], FILTER_VALIDATE_EMAIL));
     $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -27,10 +27,12 @@
         if($auth) {
           // El usuario está autentificado
           session_start();
-
+          
           // Llenar el arreglo de la sesion 
           $_SESSION['usuario'] = $usuario['email'];
           $_SESSION['login'] = true;
+          
+          header('Location: /admin/index.php');
         } else {
           $errores[] = "El password es incorrecto";
         }
@@ -39,11 +41,9 @@
       }
     }
   }
-
-  // Incluye el Header
-  require '../includes/funciones.php';
+  
   incluirTemplate('header');
-?>
+  ?>
 
 <main class="contenedor seccion contenido-centrado">
   <h1>Iniciar Sesión</h1>

@@ -1,9 +1,12 @@
 <?php
-  require __DIR__ . '/../config/database.php';
+  
+  //Importar la conexión
   $db = conectarDB();
   
+  // Consultar
   $query = "SELECT * FROM propiedades ORDER BY id LIMIT $limite;";
 
+  // Obtener resultado
   $resultado = mysqli_query($db, $query);
   
 ?>
