@@ -28,3 +28,9 @@ function escapar($html) : string{
   $escapar = htmlspecialchars($html);
   return $escapar;
 }
+
+// Validar tipo de contenido 
+function validarTipoContenido($tipo){
+  $tipos = ['vendedor', 'propiedad'];
+  return in_array($tipo, $tipos);
+}

@@ -75,9 +75,17 @@ class ActiveRecord {
     // Eliminar propiedad
     $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1;";
     $resultado = self::$db->query($query);
-    if($resultado) { 
-      $this->borrarImagen();
-      header('location: /admin?resultado=3'); 
+    if($resultado) {
+      $tipo = $_POST['tipo'];
+      
+      if(validarTipoContenido($tipo)){
+        if($tipo === 'propiedad'){
+          $this->borrarImagen();
+          header('location: /admin?resultado=3'); 
+        } else {
+          header('location: /admin?resultado=4'); 
+        }
+      }
     }
   }
 
