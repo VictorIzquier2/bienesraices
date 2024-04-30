@@ -34,3 +34,20 @@ function validarTipoContenido($tipo){
   $tipos = ['vendedor', 'propiedad'];
   return in_array($tipo, $tipos);
 }
+
+function mostrarNotificacion($codigo){
+  switch ($codigo) {
+    case '1':
+      echo '<p class="alerta exito">Registrado correctamente</p>';
+      break;
+    case '2':
+      echo '<p class="alerta exito">Actualizado correctamente</p>';
+      break;
+    case '3':
+      echo '<p class="alerta exito">Eliminado correctamente</p>';
+      break;
+    default:
+      echo '';
+      break;
+  }
+}

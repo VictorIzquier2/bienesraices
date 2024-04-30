@@ -81,10 +81,8 @@ class ActiveRecord {
       if(validarTipoContenido($tipo)){
         if($tipo === 'propiedad'){
           $this->borrarImagen();
-          header('location: /admin?resultado=3'); 
-        } else {
-          header('location: /admin?resultado=4'); 
         }
+        header('location: /admin?resultado=3'); 
       }
     }
   }

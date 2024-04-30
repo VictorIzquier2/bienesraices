@@ -67,26 +67,11 @@
 <main class="contenedor seccion">
   <h1>Administrador de Bienes Raíces</h1>
   <?php
-    switch ($resultado) {
-      case '1':
-        echo '<p class="alerta exito">Propiedad registrada correctamente</p>';
-        break;
-      case '2':
-        echo '<p class="alerta exito">Propiedad actualizada correctamente</p>';
-        break;
-      case '3':
-        echo '<p class="alerta exito">Propiedad eliminada correctamente</p>';
-        break;
-      case '4':
-        echo '<p class="alerta exito">Vendedor eliminado correctamente</p>';
-        break;
-      default:
-        echo '';
-        break;
-    }
+    mostrarNotificacion($resultado);
   ?>
 
   <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
+  <a href="/admin/vendedores/crear.php" class="boton boton-amarillo">Nuevo Vendedor</a>
 
   <h2>Propiedades</h2>
 
