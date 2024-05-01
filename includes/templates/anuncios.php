@@ -1,44 +1,39 @@
 <?php
+  use App\Propiedad;
   
-  //Importar la conexión
-  $db = conectarDB();
-  
-  // Consultar
-  $query = "SELECT * FROM propiedades ORDER BY id LIMIT $limite;";
-
-  // Obtener resultado
-  $resultado = mysqli_query($db, $query);
-  
+  if($_SERVER['SCRIPT_NAME'] === '/src/anuncios.php'){
+    $propiedades = Propiedad::all();
+  } else {
+    $propiedades = Propiedad::limit(3);
+  }
 ?>
 
 <div class="contenedor-anuncios">
-  <?php while($propiedad = mysqli_fetch_assoc($resultado)): ?>
+  <?php foreach($propiedades as $propiedad): ?>
   <div class="anuncio">
-    <img src="/imagenes/<?php echo $propiedad['imagen']; ?>" alt="Anuncio">
+    <img src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="Anuncio">
     <div class="contenido-anuncio">
-      <h3><?php echo $propiedad['titulo']; ?></h3>
-      <p><?php echo $propiedad['descripcion']; ?></p>
-      <p class="precio"><?php echo $propiedad['precio']; ?></p>
+      <h3><?php echo $propiedad->titulo; ?></h3>
+      <p><?php echo $propiedad->descripcion; ?></p>
+      <p class="precio"><?php echo $propiedad->precio; ?></p>
       <ul class="iconos-caracteristicas">
         <li>
           <img class="icono" src="../build/img/icono_wc.svg" alt="icono wc">
-          <p><?php echo $propiedad['wc']; ?></p>
+          <p><?php echo $propiedad->wc; ?></p>
         </li>
         <li>
           <img class="icono" src="../build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-          <p><?php echo $propiedad['estacionamiento']; ?></p>
+          <p><?php echo $propiedad->estacionamiento; ?></p>
         </li>
         <li>
           <img class="icono" src="../build/img/icono_dormitorio.svg" alt="icono dormitorio">
-          <p><?php echo $propiedad['habitaciones']; ?></p>
+          <p><?php echo $propiedad->habitaciones; ?></p>
         </li>
       </ul>
-      <a href="anuncio.php?id=<?php echo $propiedad['id'] ;?>" class="boton-amarillo-block">
+      <a href="anuncio.php?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-block">
         Ver Propiedad
       </a>
     </div><!-- .contenido-anuncio -->
   </div><!-- .anuncio -->
-  <?php endwhile; 
-  mysqli_close($db);
-  ?>
+  <?php endforeach; ?>
 </div><!-- .contenedor-anuncios -->

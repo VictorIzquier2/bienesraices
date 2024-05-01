@@ -94,6 +94,15 @@ class ActiveRecord {
     return $resultado;
   }
 
+  // Obtener un número máximo determinado de registros 
+  public static function limit($limite){
+    $query = "SELECT * FROM " . static::$tabla . " LIMIT " . $limite;
+
+    $resultado = self::consultarSQL($query);
+    return $resultado;
+  }
+
+
   // Busca un registro por su id
   public static function findOne($id){
     $query = "SELECT * FROM " . static::$tabla . " WHERE id = {$id}";
